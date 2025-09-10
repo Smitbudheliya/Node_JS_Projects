@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - My Website</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background-color: #000;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #d4d4d4;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(to right, #007BFF, #0056b3);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      gap: 30px;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h2 {
+      margin-bottom: 15px;
+      color: #007BFF;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .contact-form button {
+      background-color: #007BFF;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .info-card h3 {
+      color: #007BFF;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">My Website</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+      <a href="/product">Product</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Fill out the form or reach us directly.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <div class="info-card">
+        <h3>Email</h3>
+        <p>support@mywebsite.com</p>
+      </div>
+      <div class="info-card">
+        <h3>Phone</h3>
+        <p>+91 9876543210</p>
+      </div>
+      <div class="info-card">
+        <h3>Address</h3>
+        <p>123, Web Street, New Delhi, India</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 My Website | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
