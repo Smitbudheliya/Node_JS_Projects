@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Page 📝</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      color: #ffeb3b;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+      color: #f1f1f1;
+    }
+
+    .post {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: left;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .post:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .post h2 {
+      font-size: 1.6em;
+      margin-bottom: 10px;
+      color: #ffe082;
+    }
+
+    .post p {
+      font-size: 1.05em;
+      line-height: 1.7;
+      color: #fdfdfd;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #ee0979, #ff6a00);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    a.btn:hover {
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      transform: scale(1.05);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Our Blog 📝</h1>
+    <p class="subtitle">Latest thoughts, tips, and updates from our team 💡</p>
+
+    <div class="post">
+      <h2>🌱 Why We Love Fresh Fruits & Veggies</h2>
+      <p>Eating fresh is not only healthy but also supports local farmers and the environment. We explore the benefits of going green and how you can start today!</p>
+    </div>
+
+    <div class="post">
+      <h2>🚀 Building with Express.js</h2>
+      <p>Express makes backend development smooth and fun. Learn how we structure our apps and keep things simple using EJS and clean routing.</p>
+    </div>
+
+    <a href="/product" class="btn">🛒 Explore Our Products</a>
+  </div>
+</body>
+</html>

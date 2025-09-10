@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌟 Welcome Home</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      color: #fff;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 50px 35px;
+      max-width: 850px;
+      width: 100%;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      color: #ffeb3b;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+      color: #f5f5f5;
+    }
+
+    .section {
+      margin-top: 35px;
+    }
+
+    .section h2 {
+      font-size: 1.9em;
+      margin-bottom: 12px;
+      color: #ffe082;
+    }
+
+    .emoji {
+      font-size: 2em;
+      margin-top: 10px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      color: white;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    a:hover {
+      background: linear-gradient(135deg, #ee0979, #ff6a00);
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.95em;
+      color: #eee;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🏡 Home Sweet Home!</h1>
+    <p>Welcome to our little corner of the web 😊</p>
+
+    <div class="section">
+      <h2>🌈 What You’ll Find Here</h2>
+      <p>🚀 Fast performance<br>
+         🧠 Smart ideas<br>
+         🎨 Beautiful design<br>
+         🤝 Friendly community</p>
+    </div>
+
+    <div class="section">
+      <h2>📅 Today's Mood</h2>
+      <p class="emoji">😎🔥💡🍀💻</p>
+    </div>
+
+    <div class="section">
+      <h2>👣 Take the Next Step</h2>
+      <a href="/about">Learn About Us →</a>
+    </div>
+
+    <footer>
+      <p>🌟 Made with love | © 2025</p>
+    </footer>
+  </div>
+</body>
+</html>

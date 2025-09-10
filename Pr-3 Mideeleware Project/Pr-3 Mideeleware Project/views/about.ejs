@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us 🌟</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 850px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #ffeb3b;
+    }
+
+    p {
+      font-size: 1.15em;
+      margin: 15px 0;
+      line-height: 1.8;
+    }
+
+    ul {
+      list-style: none;
+      margin: 25px 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    ul li {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 1.05em;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    ul li:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    a:hover {
+      background: linear-gradient(135deg, #ee0979, #ff6a00);
+      transform: scale(1.05);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>About Us 🤝</h1>
+    <p>Hello and welcome! 👋</p>
+    <p>We’re a small team of developers passionate about building clean and helpful web applications. Our goal is to share knowledge, build useful tools, and have fun while doing it! 💡✨</p>
+    <p>Here’s what we love working with:</p>
+    <ul>
+      <li>⚙️ Node.js - Powerful backend JavaScript runtime</li>
+      <li>🚀 Express.js - Minimal and flexible web framework</li>
+      <li>📝 EJS - Simple templating with JavaScript</li>
+      <li>🎨 HTML & CSS - Web structure and styling</li>
+    </ul>
+    <p>Thanks for visiting our about page. We hope you enjoy exploring more! 🙏</p>
+    <a href="/blog">📝 Visit Our Blog</a>
+  </div>
+</body>
+</html>
