@@ -2,9 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // mongoose.connect('mongodb://localhost:27017/AdminData')
-mongoose.connect('mongodb+srv://shubham:shubham123@cluster0.k198kt0.mongodb.net/AdminData')
-
-
+mongoose.connect('mongodb+srv://shubham:shubham123@cluster0.k198kt0.mongodb.net/Cookies')
 
 const db = mongoose.connection;
 

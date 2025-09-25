@@ -7,7 +7,15 @@ const fs = require('fs');
 
 module.exports.admin = async(req,res) => {
    try {
-      return res.render('dashboards');
+    if(req.cookies.admin && req.cookies.admin._id){
+      let admin = req.cookies.admin
+      return res.render('dashboards',{
+        admin
+      });
+    }else {
+      return res.redirect('/');
+    }
+    
     // res.cookie("admin","herro");
     // console.log("cookie set");
     
@@ -21,8 +29,14 @@ module.exports.admin = async(req,res) => {
 
  module.exports.addForm = async(req,res) => {
    try {  
-    console.log("infoL ", req.user);
-        return res.render('addAdmin');
+      if(req.cookies.admin && req.cookies.admin._id){
+        let admin = req.cookies.admin
+        return res.render('addAdmin',{
+          admin
+        });
+     }else {
+      return res.redirect('/');
+     }
       // console.log(req.cookies);
    }catch(err)
  {
@@ -35,6 +49,9 @@ module.exports.admin = async(req,res) => {
  module.exports.viewForm = async(req,res) => {
     try{
       
+       
+        if(req.cookies.admin && req.cookies.admin._id){
+          let admin = req.cookies.admin
            var search ="";
        if(req.query.search) {
         search = req.query.search
@@ -55,8 +72,12 @@ module.exports.admin = async(req,res) => {
       })
       console.log(adminData);
       return res.render('viewAdmin', {
-        adminData
+        adminData , admin
       });
+       
+    }else {
+      return res.redirect('/');
+    }
     }catch(err){
         console.log(err);
         return res.redirect('/admin');
@@ -64,37 +85,36 @@ module.exports.admin = async(req,res) => {
     }
  }
 
-module.exports.insertAdmin = async(req,res) => {
+module.exports.insertAdmin = async (req, res) => {
   try {
     console.log(req.body);
     console.log(req.file);
 
-    if(req.file){
-        req.body.profile = req.file.filename;
+    if (req.file) {
+      // yaha Admin.imagePath use karo, Admin.profile nahi
+      req.body.profile = req.file.filename;
+
+      req.body.create_date = moment().format('YYYY-MM-DD HH:mm:ss A');
+      req.body.update_date = moment().format('YYYY-MM-DD HH:mm:ss A');
+      req.body.password = await bcrypt.hash(req.body.password, 10);
+      req.body.name = req.body.fname + " " + req.body.lname;
     }
-
-    req.body.create_date = moment().format('YYYY-MM-DD HH:mm:ss A');
-    req.body.update_date = moment().format('YYYY-MM-DD HH:mm:ss A');
-    req.body.password = await bcrypt.hash(req.body.password,10);
-
-    // 👇 fname + lname जोड़कर name बनाओ
-    req.body.name = `${req.body.fname} ${req.body.lname}`;
 
     let adminData = await Admin.create(req.body);
     console.log(adminData);
 
-    if(adminData){
+    if (adminData) {
       console.log("data inserted");
       return res.redirect('/admin/formAdd');
     } else {
       console.log("data not inserted");
       return res.redirect('/admin/formAdd');
     }
-  } catch(err){
+  } catch (err) {
     console.log(err);
     return res.redirect('/admin');
   }
-}
+};
 
 //delete krne ke lia
  module.exports.deleteAdmin = async(req,res) => {
@@ -168,23 +188,24 @@ module.exports.editAdminData = async (req, res) => {
       return res.redirect('/admin/viewPage');
     }
 
+    // Agar nayi file upload hui hai to purani file delete kar do
     if (req.file) {
       try {
         if (adminData.profile) {
           let imagePath = path.join(__dirname, '..', 'uploads', adminData.profile);
-          fs.unlinkSync(imagePath);
+          fs.unlinkSync(imagePath); // purani image delete
         }
-        req.body.profile = req.file.filename;
+        req.body.profile = req.file.filename; // nayi file ka naam set kar diya
       } catch (err) {
         console.log(err);
         return res.redirect('/admin/formAdd');
       }
     }
-
-    // 👇 fname + lname जोड़कर name बनाओ
-    req.body.name = `${req.body.fname} ${req.body.lname}`;
+     req.body.name = `${req.body.fname} ${req.body.lname}`;
+    // Dates update karo
     req.body.update_date = moment().format('YYYY-MM-DD HH:mm:ss A');
 
+    // Admin data update karo
     let updateAdmin = await Admin.findByIdAndUpdate(req.params.adminId, req.body);
 
     if (updateAdmin) {
@@ -199,7 +220,6 @@ module.exports.editAdminData = async (req, res) => {
     return res.redirect('/admin/formAdd');
   }
 };
-
 
 module.exports.singleAdmin = async(req,res) => {
   console.log(req.params.id);

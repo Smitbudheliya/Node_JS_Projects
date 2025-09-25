@@ -1,12 +1,17 @@
 const express=require("express");
-const passport = require("passport");
 const { loginPage, loginUser , logoutUser, forgotPassword, sendEmailWithOtp, verifyOtp, resetPassword , resetPasswordPage,changePasswordPage,changePassword , profilePage} = require("../controllers/authCtr");
 const { body } = require("express-validator");
 const routes=express.Router();
 
 
 routes.get('/',loginPage)
-routes.post('/login', passport.authenticate('local', { failureRedirect: '/' }), loginUser);
+routes.use('/admin',require('./admin_Routes'))
+routes.use("/blog", require("./blog_Routes"));
+// validation ke lia
+routes.post('/login', [
+    body("email").isEmail().withMessage("Please enter a valid email"),
+    body("password").isLength({ min: 6 }).withMessage("Password must be at least 6 characters long")
+], loginUser);
 
 routes.get('/logout',logoutUser)
 routes.get('/forgotPassword',forgotPassword)
@@ -20,7 +25,5 @@ routes.post('/change-password',changePassword)
 routes.get('/profile',profilePage)
 
 
-routes.use('/admin',passport.checkAdmin, require('./admin_Routes'))
-routes.use("/blog", require("./blog_Routes"));
 
 module.exports=routes;

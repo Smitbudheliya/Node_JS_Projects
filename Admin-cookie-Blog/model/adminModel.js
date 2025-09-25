@@ -61,7 +61,8 @@ const storage = multer.diskStorage({
 })
 
 adminSchema.statics.adminUpload = multer({storage:storage}).single('profile');
+adminSchema.statics.imagePath = uploadImage
 
-const Admin = mongoose.model('Admin',adminSchema)
+const Admin = mongoose.model('admin',adminSchema)
 
 module.exports = Admin
